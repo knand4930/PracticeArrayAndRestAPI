@@ -15,3 +15,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'category','price', 'create_at')
     list_filter = ('category', 'price', 'name')
 admin.site.register(Product, ProductAdmin)
+
+
+class CartAdmin(admin.ModelAdmin):
+    list_display = ('cart_id', 'create_at')
+    list_filter = ('cart_id', 'create_at')
+admin.site.register(Cart, CartAdmin)

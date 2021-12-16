@@ -1,5 +1,6 @@
 from django.db import models
 from djrichtextfield.models import RichTextField
+from django.contrib.auth. models import User
 # Create your models here.
 
 class Category(models.Model):
@@ -49,3 +50,16 @@ class Product(models.Model):
         
     def __str__(self):
         return self.name    
+
+
+class Cart(models.Model):
+    cart_id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    books = models.ManyToManyField(Book)
+    products = models.ManyToManyField(Product)
+    create_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['cart_id', '-create_at']
+        
+    def __str__(self):
+        return self.cart_id

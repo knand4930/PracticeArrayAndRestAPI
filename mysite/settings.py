@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'main',
     'rest_framework',
     'djrichtextfield',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -133,3 +135,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #https://github.com/toert/django-gitlab-ci-guide
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://gohelps.net",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+
+]
+
+CORS_ALLOW_ALL_ORIGINS: True
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+#https://pypi.org/project/django-cors-headers/
