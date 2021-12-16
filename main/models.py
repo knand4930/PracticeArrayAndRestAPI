@@ -7,6 +7,7 @@ class Category(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
+        verbose_name_plural = "Categories"
         ordering =['-create_at']
     
     def __str__(self):
@@ -16,6 +17,7 @@ class Category(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=200)
     category = models.ForeignKey(Category, related_name="books", on_delete=models.CASCADE)
+    author = models.CharField(max_length=200)
     ispn = models.CharField(max_length=20)
     pages = models.IntegerField()
     price = models.FloatField()

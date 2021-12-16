@@ -1,7 +1,17 @@
 from django.contrib import admin
 from .models import *
 # Register your models here.
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'create_at')
+    list_filter = ('title', 'create_at')
+admin.site.register(Category, CategoryAdmin)
 
-admin.site.register(Category)
-admin.site.register(Book)
-admin.site.register(Product)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'create_at', 'price')
+    list_filter = ('category', 'create_at', 'price')
+admin.site.register(Book, BookAdmin)
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'category','price', 'create_at')
+    list_filter = ('category', 'price', 'name')
+admin.site.register(Product, ProductAdmin)
