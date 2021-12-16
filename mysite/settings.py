@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djrichtextfield',
     "corsheaders",
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+
+REST_FRAMEWORK ={
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}
 
 
 # Database
