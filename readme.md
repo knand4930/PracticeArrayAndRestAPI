@@ -27,3 +27,11 @@ Type Code	C Type	                    Python Type	                Minimum size in
 ‘Q’	        unsigned long long	        int                         	8
 ‘f’	        float	                    float                       	4
 ‘d’	        double	                    float                       	8
+
+
+
+#django restapi 
+project name = mysite 
+and app name is = main
+
+using requirements.txt use to install all the package (pip3 install -r requirements.txt)
